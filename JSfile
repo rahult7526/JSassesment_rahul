@@ -1,0 +1,45 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+// creating a varialble to hold no.of NFT's
+let nfts = []; // nfts declared
+
+// creating a function  mintNFT with creating a NFT object
+
+function mintNFT(author ,name, year, description ){
+    //object creation
+    const nft = {
+        author : author,
+        name : name,
+        year : year,
+        description : description
+    };
+    nfts.push(nft); // pushing the object data to to nfts aarray
+}
+// creating function for listing the existing NFTs
+function listNFTs(){
+    for (let i = 0; i < nfts.length; i++){
+        console.log("Author Name - \t\t" + nfts[i].author);
+        console.log("Book name - \t\t" + nfts[i].name);
+        console.log("Year of publish -   " + nfts[i].year);
+        console.log("About - \t\t    " + nfts[i].description);
+        console.log("                  ");
+    }
+}
+function getTotalSupply(){ // function to get total number of NFTs
+    return nfts.length;
+}
+// object data
+mintNFT("Harper Lee","To Kill a Mockingbird", 1960,"The moral growth and racial injustice");
+mintNFT("George Orwell","1984", 1949,"The theme of surveillance and loss of individual freedom");
+mintNFT("Jane Austen","Pride and Prejudice", 1813,"The complexities of love and marriage" );
+mintNFT("F. Scott Fitzgerald","The Great Gatsby", 1925,"The theme of idealism and the mysterious figure of Jay Gatsby" );
+
+listNFTs();
+console.log("Total Supply : "+ getTotalSupply());
